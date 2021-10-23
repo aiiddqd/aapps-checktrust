@@ -10,23 +10,23 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          path: ddd
-      - run: date > ddd/generated.txt
+          path: plugin
+      - run: date > plugin/generated.txt
       - run: cd ddd && ls -la
       - name: action-zip
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r ddd.zip ddd
+          args: zip -qq -r plugin.zip plugin
       - run: ls -la
-      - run: cd ddd & ls -la
+      - run: cd plugin & ls -la
       - name: upload-artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ddd
-          path: ddd.zip
+          name: plugin
+          path: plugin.zip
       - name: Upload to release 
         uses: JasonEtco/upload-to-release@master
         with:
-          args: ddd.zip application/zip
+          args: plugin.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
