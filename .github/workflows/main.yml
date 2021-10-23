@@ -22,12 +22,12 @@ jobs:
         with:
           name: ddd
           path: ddd.zip
-      # - name: Upload to release
-      #   uses: JasonEtco/upload-to-release@master
-      #   with:
-      #     args: ddd.zip application/zip
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload to release 
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: ddd.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # name: Upload Release Asset
     # runs-on: ubuntu-latest
