@@ -13,7 +13,8 @@ jobs:
           path: ddd
       - run: date > ddd/generated.txt
       - run: cd ddd && ls -la
-      - uses: montudor/action-zip@v0.1.0
+      - name: action-zip
+        uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r ddd.zip ddd
       - run: ls -la
