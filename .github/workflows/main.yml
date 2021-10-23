@@ -14,9 +14,6 @@ jobs:
         run: |
           date > generated.txt
           ls -la
-        name: Build project
-        run: |
-          mkdir ddd
       # - name: Create artifact
       #   uses: montudor/action-zip@v0.1.0
       #   with:
