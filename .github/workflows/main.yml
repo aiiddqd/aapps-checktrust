@@ -18,7 +18,8 @@ jobs:
           args: zip -qq -r ddd.zip ddd
       - run: ls -la
       - run: cd ddd & ls -la
-      - uses: actions/upload-artifact@v2
+      - name: upload-artifact
+        uses: actions/upload-artifact@v2
         with:
           name: ddd
           path: ddd.zip
@@ -28,20 +29,3 @@ jobs:
           args: ddd.zip application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    # name: Upload Release Asset
-    # runs-on: ubuntu-latest
-    # steps:
-    #   - name: Checkout code
-    #     uses: actions/checkout@v2
-    #   - name: Build project
-    #     run: |
-    #       mkdir ddd
-    #       mv * ddd
-    #       echo hello > ddd/world.txt
-    #       zip -r ddd.zip ddd
-    #   - name: upload build
-    #   - uses: actions/upload-artifact@v2
-    #     with:
-    #       name: ddd
-    #       path: ddd.zip
