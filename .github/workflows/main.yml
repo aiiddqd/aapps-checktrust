@@ -8,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout
       - uses: actions/checkout@v2
-        name: checkout
-        run: |
+      - run: |
           date > generated.txt
           ls -la
       # - name: Create artifact
