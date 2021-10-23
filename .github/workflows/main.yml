@@ -11,7 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build project
+        run: |
+          date > generated.txt
+          ls -la
+        name: Build project
         run: |
           mkdir ddd
       - name: Create artifact
