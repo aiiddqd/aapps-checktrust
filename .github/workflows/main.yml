@@ -18,11 +18,10 @@ jobs:
           args: zip -qq -r ddd.zip ddd
       - run: ls -la
       - run: cd ddd & ls -la
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #       name: ddd
-      #       path: ddd.zip
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ddd
+          path: ddd.zip
       # - name: Upload to release
       #   uses: JasonEtco/upload-to-release@master
       #   with:
