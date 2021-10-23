@@ -12,7 +12,7 @@ jobs:
         with:
           path: plugin
       - run: date > plugin/generated.txt
-      - run: cd ddd && ls -la
+      - run: cd plugin && ls -la
       - name: action-zip
         uses: montudor/action-zip@v0.1.0
         with:
