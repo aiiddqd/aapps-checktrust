@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          date > generated.txt
-          ls -la
+      - run: date > generated.txt
+      - run: ls -la
+          
+          
       # - name: Create artifact
       #   uses: montudor/action-zip@v0.1.0
       #   with:
