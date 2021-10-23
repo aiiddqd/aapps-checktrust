@@ -15,6 +15,15 @@ jobs:
         with:
           name: my-artifact
           path: ddd/world.txt
+      - uses: actions/download-artifact@v2
+        with:
+          name: my-artifact
+          path: ddd/world.txt
+          
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: ddd/
+
 
 
 
