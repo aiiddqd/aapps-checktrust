@@ -13,10 +13,10 @@ jobs:
           path: ddd
       - run: date > ddd/generated.txt
       - run: cd ddd && ls -la
-      # - name: Create artifact
-      #   uses: montudor/action-zip@v0.1.0
-      #   with:
-      #     args: zip -qq -r ddd.zip *
+      - name: Create artifact
+          uses: montudor/action-zip@v0.1.0
+          with:
+            args: zip -qq -r ddd.zip ddd
       #   run: ls -la
       # - name: Upload artifact
       #   uses: actions/upload-artifact@v2
