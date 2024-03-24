@@ -45,7 +45,8 @@ final class Reports {
 
 
 	public static function render_websites( $data ) {
-		echo '<h2>websites</h2>';
+		echo '<hr/>';
+		echo '<h2>Websites</h2>';
 
 		foreach ( $data as $key => $value ) {
 			printf( '<h3>%s</h3>', $key );
@@ -77,7 +78,9 @@ final class Reports {
 	}
 
 	public static function render_urls( $data ) {
-		echo '<h2>urls</h2>';
+		echo '<hr/>';
+
+		echo '<h2>URLs</h2>';
 		foreach ( $data as $key => $value ) {
 			printf( '<h3>%s</h3>', $key );
 			$metrics = $value['summary'];
