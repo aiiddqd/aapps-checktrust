@@ -123,5 +123,6 @@ function get_app_key() {
 	if ( defined( 'CHECKTRUST_APP_KEY' ) ) {
 		return CHECKTRUST_APP_KEY;
 	}
-	return null;
+
+	return \Aapps\CheckTrust\Settings::get_app_key();
 }
