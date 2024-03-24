@@ -71,7 +71,7 @@ function update_data_for_urls() {
 function update_data_for_sites() {
 
 	$websites = Settings::get_websites();
-	$parameterList = 'trust,spam,hostQuality,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK';
+	$parameterList = 'trust,spam,hostQuality,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK,semrushRuRating,semrushRuSeTraffic';
 	$websites_data = [];
 	foreach ( $websites as $website ) {
 		$websites_data[ $website ] = [];

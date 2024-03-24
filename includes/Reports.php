@@ -10,11 +10,25 @@ final class Reports {
 	public static $key_titles = [ 
 		'trust' => 'Доверие',
 		'spam' => 'Спамность',
+		'quality' => 'Качество',
 		'hostQuality' => 'Качество хоста',
 		'loadingTime' => 'Скорость загрузки',
 		'keysSoTrafYaMSK' => 'keysSoTrafYaMSK',
 		'keysSoTrafGoogleMSK' => 'keysSoTrafGoogleMSK',
-		'quality' => 'Качество',
+		'semrushRuRating' => 'semrush Рейтинг',
+		'semrushRuSeTraffic' => 'semrush Трафик',
+	];
+
+	public static $keys_for_websites = [
+		'trust',
+		'spam',
+		'hostQuality',
+		'quality',
+		'loadingTime',
+		'keysSoTrafYaMSK',
+		'keysSoTrafGoogleMSK',
+		'semrushRuRating',
+		'semrushRuSeTraffic',
 	];
 
 	public static function init() {
