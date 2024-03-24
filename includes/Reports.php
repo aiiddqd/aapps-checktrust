@@ -1,6 +1,8 @@
 <?php
 
-namespace AappsCheckTrust;
+namespace Aapps\CheckTrust;
+
+use Aapps\CheckTrust\Settings;
 
 final class Reports {
 
@@ -19,6 +21,10 @@ final class Reports {
 					<span> | </span>
 					<span>
 						<?= sprintf( '<a href="https://checktrust.ru/cabinet">Go to CheckTrust</a>' ); ?>
+					</span>
+					<span> | </span>
+					<span>
+						<?= sprintf( '<a href="%s">Settings</a>', Settings::get_url_to_page() ); ?>
 					</span>
 
 				</div>

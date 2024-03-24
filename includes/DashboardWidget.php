@@ -2,7 +2,7 @@
 
 namespace U7\CheckTrust\DashboardWidget;
 
-use AappsCheckTrust\Reports;
+use Aapps\CheckTrust\Reports;
 
 add_action('wp_dashboard_setup', __NAMESPACE__ . '\add_checktrust_dashboard_widget');
 

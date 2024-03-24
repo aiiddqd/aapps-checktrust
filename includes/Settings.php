@@ -2,6 +2,7 @@
 
 namespace Aapps\CheckTrust;
 
+use Aapps\CheckTrust\Reports;
 
 class Settings {
 	public static $menu_slug = 'aapps-checktrust-settings';
@@ -12,6 +13,10 @@ class Settings {
 		add_action( 'admin_init', [ static::class, 'add_settings' ] );
 	}
 
+
+    public static function get_url_to_page(){
+		return admin_url( 'options-general.php?page=' . static::$menu_slug );
+	}
 
     public static function get_urls(){
 		$urls_list = get_option( static::$options_key )['urls_list'] ?? null;
@@ -42,7 +47,6 @@ class Settings {
 			} else {
 				$list[] = $value;
 			}
-			// $website_list[$key] = trim($value);
 		}
 		return $list;
 
@@ -66,6 +70,9 @@ class Settings {
 				?>
 			<div class="wrap">
 				<h1>CheckTrust Settings</h1>
+				<div>
+					<?= sprintf( '<a href="%s">Go to Report</a>', Reports::get_url_to_page() ); ?>
+				</div>
 				<form action='options.php' method='post'>
 					<?php
 						settings_fields( static::$menu_slug );
