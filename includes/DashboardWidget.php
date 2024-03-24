@@ -13,13 +13,26 @@ function add_checktrust_dashboard_widget() {
 
 function render_checktrust_dashboard_widget() { 
 	$data = get_transient('checktrust_data');
-	if(empty($data)){
+	// echo '<pre>';
+	// var_dump($data['websites'][0]);
+    // echo '</pre>';
+	if(empty($data['websites'])){
 		echo 'Data is empty! Update page please';
-        do_action('checktrust_cron_event');
+        
 	}
-    echo '<pre>';
-	var_dump($data);
-    echo '</pre>';
+
+	$key = array_key_first($data['websites']);
+	$data = $data['websites'][$key]['summary'];
+	printf('<p>Доверие: %s</p>', $data['trust']);
+	printf('<p>Спамность: %s</p>', $data['spam']);
+	printf('<p>Качество хоста: %s</p>', $data['hostQuality']);
+	printf('<p>Время загрузки в мс: %s</p>', $data['loadingTime']);
+	printf('<p>Качество сайта: %s</p>', $data['quality']);
+	printf('<p>Трафик из Яндекса по КейСо: %s</p>', $data['keysSoTrafYaMSK']);
+	printf('<p>Трафик из Гугла по КейСо: %s</p>', $data['keysSoTrafGoogleMSK']);
+    // echo '<pre>';
+	// var_dump($data);
+    // echo '</pre>';
 
 	printf('<a href="%s">Go to Report</a>', Reports::get_url_to_page());
 }
