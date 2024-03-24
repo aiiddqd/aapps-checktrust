@@ -7,7 +7,7 @@ use Aapps\CheckTrust\Settings;
 final class Reports {
 
 	public static $slug = 'checktrust';
-	public static $key_titles = [
+	public static $key_titles = [ 
 		'trust' => 'Доверие',
 		'spam' => 'Спамность',
 		'hostQuality' => 'Качество хоста',
@@ -49,9 +49,29 @@ final class Reports {
 
 		foreach ( $data as $key => $value ) {
 			printf( '<h3>%s</h3>', $key );
-			echo '<pre>';
-			var_dump( $value );
-			echo '</pre>';
+			$metrics = $value['summary'];
+			// echo '<pre>';
+			// var_dump( $metrics );
+			// echo '</pre>';
+			?>
+			<table class="widefat fixed" cellspacing="0">
+				<thead>
+					<?php foreach ( $metrics as $key_metric => $value_metric ) : ?>
+						<th>
+							<?= self::get_title_by_key( $key_metric ) ?>
+						</th>
+					<?php endforeach; ?>
+				</thead>
+
+				<tbody>
+					<tr>
+					<?php foreach ( $metrics as $key_metric => $value_metric ) : ?>
+						<td><?= $value_metric ?></td>	
+					<?php endforeach; ?>
+					</tr>
+				</tbody>
+			</table>
+			<?php
 		}
 
 	}
@@ -60,10 +80,42 @@ final class Reports {
 		echo '<h2>urls</h2>';
 		foreach ( $data as $key => $value ) {
 			printf( '<h3>%s</h3>', $key );
-			echo '<pre>';
-			var_dump( $value );
-			echo '</pre>';
+			$metrics = $value['summary'];
+			// echo '<pre>';
+			// var_dump( $metrics );
+			// echo '</pre>';
+			?>
+			<table class="widefat fixed" cellspacing="0">
+				<thead>
+					<?php foreach ( $metrics as $key_metric => $value_metric ) : ?>
+						<th>
+							<?= self::get_title_by_key( $key_metric ) ?>
+						</th>
+					<?php endforeach; ?>
+				</thead>
+
+				<tbody>
+					<tr>
+					<?php foreach ( $metrics as $key_metric => $value_metric ) : ?>
+						<td><?= $value_metric ?></td>	
+					<?php endforeach; ?>
+					</tr>
+				</tbody>
+			</table>
+			<?php
 		}
+
+
+
+	}
+
+	public static function get_title_by_key( $key ) {
+
+		if ( isset ( static::$key_titles[ $key ] ) ) {
+			return static::$key_titles[ $key ];
+		}
+
+		return null;
 
 	}
 
@@ -81,9 +133,9 @@ final class Reports {
 		}
 	}
 
-    public static function get_url_to_page(){
-        return admin_url( 'tools.php?page=' . static::$slug );
-    }
+	public static function get_url_to_page() {
+		return admin_url( 'tools.php?page=' . static::$slug );
+	}
 
 	public static function render() {
 
