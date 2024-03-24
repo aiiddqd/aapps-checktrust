@@ -7,6 +7,15 @@ use Aapps\CheckTrust\Settings;
 final class Reports {
 
 	public static $slug = 'checktrust';
+	public static $key_titles = [
+		'trust' => 'Доверие',
+		'spam' => 'Спамность',
+		'hostQuality' => 'Качество хоста',
+		'loadingTime' => 'Скорость загрузки',
+		'keysSoTrafYaMSK' => 'keysSoTrafYaMSK',
+		'keysSoTrafGoogleMSK' => 'keysSoTrafGoogleMSK',
+		'quality' => 'Качество',
+	];
 
 	public static function init() {
 
@@ -32,6 +41,30 @@ final class Reports {
 				self::render();
 			} );
 		} );
+	}
+
+
+	public static function render_websites( $data ) {
+		echo '<h2>websites</h2>';
+
+		foreach ( $data as $key => $value ) {
+			printf( '<h3>%s</h3>', $key );
+			echo '<pre>';
+			var_dump( $value );
+			echo '</pre>';
+		}
+
+	}
+
+	public static function render_urls( $data ) {
+		echo '<h2>urls</h2>';
+		foreach ( $data as $key => $value ) {
+			printf( '<h3>%s</h3>', $key );
+			echo '<pre>';
+			var_dump( $value );
+			echo '</pre>';
+		}
+
 	}
 
 	public static function update_button() {
@@ -75,28 +108,6 @@ final class Reports {
 
 	}
 
-	public static function render_urls( $data ) {
-		echo '<h2>urls</h2>';
-		foreach ( $data as $key => $value ) {
-			printf( '<h3>%s</h3>', $key );
-			echo '<pre>';
-			var_dump( $value );
-			echo '</pre>';
-		}
-
-	}
-
-	public static function render_websites( $data ) {
-		echo '<h2>websites</h2>';
-
-		foreach ( $data as $key => $value ) {
-			printf( '<h3>%s</h3>', $key );
-			echo '<pre>';
-			var_dump( $value );
-			echo '</pre>';
-		}
-
-	}
 }
 
 Reports::init();
