@@ -38,43 +38,30 @@ foreach ( $files as $file ) {
 	require_once $file;
 }
 
-function update_data_from_api($print = false) {
-
-	$data1 = update_data_for_sites();
-	$data2 = update_data_for_urls();
-	
-	if ( is_wp_error( $data1 ) ) {
-		if($print){
-			wp_send_json_error( [ 'get_error_message' => $data1->get_error_message() ] );
-		}
-	}
-
-	if($print){
-		wp_send_json_success( $data1 );
-	}
-
-
+function update_data_from_api() {
+	update_data_for_sites();
+	update_data_for_urls();
 }
 
-function update_data_for_urls(){
+function update_data_for_urls() {
 
 	$urls = Settings::get_urls();
 	$parameterList = 'trust,spam,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK';
 	$data_new = [];
-	foreach($urls as $url){
-		$data_new[$url] = [];
+	foreach ( $urls as $url ) {
+		$data_new[ $url ] = [];
 		$data = request( [ 
 			'host' => $url,
 			'parameterList' => $parameterList,
 		] );
 
 		if ( isset ( $data['summary'] ) ) {
-			$data_new[$url]['summary'] = $data['summary'];
+			$data_new[ $url ]['summary'] = $data['summary'];
 		}
-	
+
 	}
 
-	if($data_new){
+	if ( $data_new ) {
 		update_data( 'urls', $data_new );
 	}
 
@@ -85,25 +72,25 @@ function update_data_for_urls(){
 	return $data_new;
 }
 
-function update_data_for_sites(){
-	
+function update_data_for_sites() {
+
 	$websites = Settings::get_websites();
 	$parameterList = 'trust,spam,hostQuality,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK';
 	$websites_data = [];
-	foreach($websites as $website){
-		$websites_data[$website] = [];
+	foreach ( $websites as $website ) {
+		$websites_data[ $website ] = [];
 		$data = request( [ 
 			'host' => $website,
 			'parameterList' => $parameterList,
 		] );
 
 		if ( isset ( $data['summary'] ) ) {
-			$websites_data[$website]['summary'] = $data['summary'];
+			$websites_data[ $website ]['summary'] = $data['summary'];
 		}
-	
+
 	}
 
-	if($websites_data){
+	if ( $websites_data ) {
 		update_data( 'websites', $websites_data );
 	}
 
@@ -136,7 +123,7 @@ function request( $context = [] ) {
 	if ( is_wp_error( $response ) ) {
 		return $response;
 	}
-	
+
 	$response_body = wp_remote_retrieve_body( $response );
 
 	return json_decode( $response_body, true );
