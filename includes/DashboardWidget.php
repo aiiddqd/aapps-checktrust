@@ -1,15 +1,12 @@
 <?php 
 
-namespace U7\CheckTrust\DashboardWidget;
+namespace Aapps\CheckTrust\DashboardWidget;
 
 use Aapps\CheckTrust\Reports;
 
-add_action('wp_dashboard_setup', __NAMESPACE__ . '\add_checktrust_dashboard_widget');
-
-
-function add_checktrust_dashboard_widget() {
+add_action('wp_dashboard_setup', function(){
 	wp_add_dashboard_widget('checktrust_dashboard_widget', 'CheckTrust', __NAMESPACE__ . '\render_checktrust_dashboard_widget');
-}
+});
 
 function render_checktrust_dashboard_widget() { 
 	$data = get_transient('checktrust_data');
