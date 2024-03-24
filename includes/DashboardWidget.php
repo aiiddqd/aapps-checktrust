@@ -13,12 +13,8 @@ function add_checktrust_dashboard_widget() {
 
 function render_checktrust_dashboard_widget() { 
 	$data = get_transient('checktrust_data');
-	// echo '<pre>';
-	// var_dump($data['websites'][0]);
-    // echo '</pre>';
 	if(empty($data['websites'])){
-		echo 'Data is empty! Update page please';
-        
+		echo 'Data is empty! Update page please';        
 	}
 
 	$key = array_key_first($data['websites']);
