@@ -136,16 +136,10 @@ function request( $context = [] ) {
 	if ( is_wp_error( $response ) ) {
 		return $response;
 	}
-	// Handle the response
-	// $response_code = wp_remote_retrieve_response_code( $response );
-
-	// echo "Response Code: " . $response_code;
-	// echo "Response Body: " . $response_body;
+	
 	$response_body = wp_remote_retrieve_body( $response );
 
 	return json_decode( $response_body, true );
-
-	// return $response_body;
 }
 
 function get_data( $key = '' ) {
@@ -178,5 +172,5 @@ function get_app_key() {
 		return CHECKTRUST_APP_KEY;
 	}
 
-	return \Aapps\CheckTrust\Settings::get_app_key();
+	return Settings::get_app_key();
 }
