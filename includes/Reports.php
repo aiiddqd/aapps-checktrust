@@ -29,7 +29,7 @@ final class Reports {
 	}
 
 	public static function update_button() {
-		$url = admin_url( 'tools.php?page=' . static::$slug );
+		$url = self::get_url_to_page();
 		$url = add_query_arg( 'action', 'update', $url );
 
 		if ( isset ( $_GET['action'] ) && 'update' == $_GET['action'] ) {
@@ -41,6 +41,11 @@ final class Reports {
 
 		}
 	}
+
+    public static function get_url_to_page(){
+        return admin_url( 'tools.php?page=' . static::$slug );
+    }
+
 	public static function render() {
 
 		$data = get_transient( 'checktrust_data' );

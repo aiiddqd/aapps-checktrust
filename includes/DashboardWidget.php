@@ -2,6 +2,8 @@
 
 namespace U7\CheckTrust\DashboardWidget;
 
+use AappsCheckTrust\Reports;
+
 add_action('wp_dashboard_setup', __NAMESPACE__ . '\add_checktrust_dashboard_widget');
 
 
@@ -19,5 +21,5 @@ function render_checktrust_dashboard_widget() {
 	var_dump($data);
     echo '</pre>';
 
-	printf('<a href="https://checktrust.ru/cabinet">Go to CheckTrust</a>');
+	printf('<a href="%s">Go to Report</a>', Reports::get_url_to_page());
 }
