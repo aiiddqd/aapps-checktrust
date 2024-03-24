@@ -13,8 +13,8 @@ final class Reports {
 		'quality' => 'Качество',
 		'hostQuality' => 'Качество хоста',
 		'loadingTime' => 'Скорость загрузки',
-		'keysSoTrafYaMSK' => 'keysSoTrafYaMSK',
-		'keysSoTrafGoogleMSK' => 'keysSoTrafGoogleMSK',
+		'keysSoTrafYaMSK' => 'KS Трафик Yandex',
+		'keysSoTrafGoogleMSK' => 'KS Трафик Google',
 		'semrushRuRating' => 'semrush Рейтинг',
 		'semrushRuSeTraffic' => 'semrush Трафик',
 	];
