@@ -142,7 +142,7 @@ class Settings {
 					value="<?php echo esc_attr( $value ); ?>">
 				<span> | </span>
 				<span>
-					Get API Key from here: <a href="https://checktrust.ru/cabinet/api.html" target="_blank">https://checktrust.ru/cabinet/api.html</a>
+					Get API Key from here: <a href="https://checktrust.ru/r/109659" target="_blank">https://checktrust.ru/cabinet/api.html</a>
 				</span>
 			<?php
 			},
