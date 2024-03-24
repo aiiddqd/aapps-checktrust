@@ -13,6 +13,42 @@ class Settings {
 	}
 
 
+    public static function get_urls(){
+		$urls_list = get_option( static::$options_key )['urls_list'] ?? null;
+
+
+		if(empty($urls_list)){
+			return [];
+		}
+		$urls_list = trim($urls_list);
+		return explode("\n", $urls_list);
+
+		
+	}
+    public static function get_websites(){
+        $website_list = get_option( static::$options_key )['website_list'] ?? null;
+
+
+		if(empty($website_list)){
+			return [];
+		}
+		$website_list = explode("\n", $website_list);
+
+		$list = [];
+		foreach($website_list as $key => $value){
+			$parsed_url = parse_url($value);
+			if (isset($parsed_url['host'])) {
+				$list[] = $parsed_url['host'];
+			} else {
+				$list[] = $value;
+			}
+			// $website_list[$key] = trim($value);
+		}
+		return $list;
+
+	}
+
+	
     public static function get_app_key(){
         return get_option( static::$options_key )['api_key'] ?? null;
     }

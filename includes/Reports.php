@@ -40,11 +40,42 @@ final class Reports {
             echo 'Data is empty! Update page please';
             do_action('checktrust_cron_event');
         }
-        echo '<pre>';
-        var_dump($data);
-        echo '</pre>';
+        if(isset($data['hostLimitsBalance'])){
+            printf('<p>hostLimitsBalance: %s</p>', $data['hostLimitsBalance']);
+        }
+
+        if(!empty($data['websites'])){
+            self::render_websites($data['websites']);
+        }
+    
+        if(!empty($data['urls'])){
+            self::render_urls($data['urls']);
+        }
     
         printf('<a href="https://checktrust.ru/cabinet">Go to CheckTrust</a>');
+    }
+
+    public static function render_urls($data){
+        echo '<h2>urls</h2>';
+        foreach($data as $key => $value){
+            printf('<h3>%s</h3>', $key);
+            echo '<pre>';
+            var_dump($value);
+            echo '</pre>';
+        }
+        
+    }
+    
+    public static function render_websites($data){
+        echo '<h2>websites</h2>';
+
+        foreach($data as $key => $value){
+            printf('<h3>%s</h3>', $key);
+            echo '<pre>';
+            var_dump($value);
+            echo '</pre>';
+        }
+        
     }
 }
 
