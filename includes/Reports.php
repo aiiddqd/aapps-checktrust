@@ -17,6 +17,8 @@ final class Reports {
 		'keysSoTrafGoogleMSK' => 'KS Трафик Google',
 		'semrushRuRating' => 'semrush Рейтинг',
 		'semrushRuSeTraffic' => 'semrush Трафик',
+		'mjHin' => 'MJ Links',
+		'mjTF' => 'MJ Trust Flow',
 	];
 
 	public static $keys_for_websites = [

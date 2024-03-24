@@ -46,7 +46,7 @@ function update_data_from_api() {
 function update_data_for_urls() {
 
 	$urls = Settings::get_urls();
-	$parameterList = 'trust,spam,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK';
+	$parameterList = 'trust,spam,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK,mjHin,mjTF';
 	$data_new = [];
 	foreach ( $urls as $url ) {
 		$data_new[ $url ] = [];
@@ -71,7 +71,7 @@ function update_data_for_urls() {
 function update_data_for_sites() {
 
 	$websites = Settings::get_websites();
-	$parameterList = 'trust,spam,hostQuality,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK,semrushRuRating,semrushRuSeTraffic';
+	$parameterList = 'trust,spam,hostQuality,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK,semrushRuRating,semrushRuSeTraffic,mjHin,mjTF';
 	$websites_data = [];
 	foreach ( $websites as $website ) {
 		$websites_data[ $website ] = [];
