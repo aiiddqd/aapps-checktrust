@@ -65,10 +65,6 @@ function update_data_for_urls() {
 		update_data( 'urls', $data_new );
 	}
 
-	if ( isset ( $data['hostLimitsBalance'] ) ) {
-		update_data( 'hostLimitsBalance', $data['hostLimitsBalance'] );
-	}
-
 	return $data_new;
 }
 

@@ -138,8 +138,12 @@ class Settings {
 				$options = get_option( static::$options_key );
 				$value = ! empty ( $options['api_key'] ) ? $options['api_key'] : '';
 				?>
-			<input type="text" name="<?php echo esc_attr( static::$options_key ); ?>[api_key]"
-				value="<?php echo esc_attr( $value ); ?>">
+				<input type="text" name="<?php echo esc_attr( static::$options_key ); ?>[api_key]"
+					value="<?php echo esc_attr( $value ); ?>">
+				<span> | </span>
+				<span>
+					Get API Key from here: <a href="https://checktrust.ru/cabinet/api.html" target="_blank">https://checktrust.ru/cabinet/api.html</a>
+				</span>
 			<?php
 			},
 			static::$menu_slug
