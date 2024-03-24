@@ -59,7 +59,7 @@ function update_data_from_api($print = false) {
 function update_data_for_urls(){
 
 	$urls = Settings::get_urls();
-	$parameterList = 'trust,spam,hostQuality,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK';
+	$parameterList = 'trust,spam,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK';
 	$data_new = [];
 	foreach($urls as $url){
 		$data_new[$url] = [];
