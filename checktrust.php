@@ -37,14 +37,16 @@ foreach ( $files as $file ) {
 	require_once $file;
 }
 
-function update_data_for_site() {
+function update_data_for_site($print = false) {
 	$data = request( [ 
 		'host' => 'wpcraft.ru',
 		'parameterList' => 'trust,spam,hostQuality,loadingTime,keysSoTrafYaMSK,keysSoTrafGoogleMSK',
 	] );
 
 	if ( is_wp_error( $data ) ) {
-		wp_send_json_error( [ 'get_error_message' => $data->get_error_message() ] );
+		if($print){
+			wp_send_json_error( [ 'get_error_message' => $data->get_error_message() ] );
+		}
 	}
 
 	if ( isset ( $data->summary ) ) {
@@ -54,8 +56,10 @@ function update_data_for_site() {
 	if ( isset ( $data->hostLimitsBalance ) ) {
 		update_data( 'hostLimitsBalance', $data->hostLimitsBalance );
 	}
+	if($print){
+		wp_send_json_success( $data );
+	}
 
-	wp_send_json_success( $data );
 }
 
 /**
